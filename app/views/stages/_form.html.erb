@@ -1,0 +1,48 @@
+<%= form_with model: stage, local: true do |f|%>
+<div class="field">
+    <%= f.label :reward, "報酬金額" %><br />
+    <%= f.text_field :reward, id:"stage_reward" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title, "開催ステージの名称" %><br />
+    <%= f.text_field :title, id:"stage_title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date, "開催日時" %><br />
+     <%= f.collection_select(:month_id, Month.all,:id, :name, {}, {class:"select-box", id:"stage_month"}) %>
+    <%= f.collection_select(:day_id, Day.all,:id, :name, {}, {class:"select-box", id:"stage_day"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time, "開演" %><br />
+     <%= f.collection_select(:show_hour_id, ShowHour.all,:id, :name, {}, {class:"select-box", id:"stage_show_hour"}) %>
+    <%= f.collection_select(:show_minute_id, ShowMinute.all,:id, :name, {}, {class:"select-box", id:"stage_show_minute"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :time, "終演" %><br />
+     <%= f.collection_select(:end_hour_id, EndHour.all,:id, :name, {}, {class:"select-box", id:"stage_end_hour"}) %>
+    <%= f.collection_select(:end_minute_id, EndMinute.all,:id, :name, {}, {class:"select-box", id:"stage_end_minute"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :theater, "劇場" %><br />
+    <%= f.text_field :theater, id:"stage_theater" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "劇場住所" %><br />
+    <%= f.text_field :address, id:"stage_address" %>
+  </div>
+
+  <div class="weight-bold-text">
+     <%= f.label :conditions, "条件" %><br />
+  <%= f.text_area :conditions, class:"items-text", id:"stage_conditions", placeholder:"例）受付で入場料1500円を支払って入場すること。佐藤一郎に投票すること。" ,rows:"7" ,maxlength:"1000" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "募集する", class: :form__btn  %>
+  </div>
+<% end %>

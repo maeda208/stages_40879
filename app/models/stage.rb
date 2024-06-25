@@ -1,13 +1,11 @@
 class Stage < ApplicationRecord
-  belongs_to :user
+  
   validates :reward, presence: true
   validates :title, presence: true
-  validates :month, presence: true
-  validates :day, presence: true
-  validates :show_hour, presence: true
-  validates :show_minute, presence: true
-  validates :end_hour, presence: true
-  validates :end_minute, presence: true
+  validates :month_id, presence: true
+  validates :day_id, presence: true
+  validates :show_hour_id, presence: true
+  validates :end_hour_id, presence: true
   validates :theater, presence: true
   validates :address, presence: true
   validates :conditions, presence: true

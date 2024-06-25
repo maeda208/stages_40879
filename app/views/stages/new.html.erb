@@ -1,11 +1,9 @@
-<div class="contents row">
-  <div class="container">
-    <h3>投稿する</h3>
-    <%= form_with(model: @stage, local: true) do |form| %>
-      <%= form.text_field :name, placeholder: "Nickname" %>
-      <%= form.text_field :image, placeholder: "Image Url" %>
-      <%= form.text_area :text, placeholder: "text", rows: "10" %>
-      <%= form.submit "SEND" %>
-    <% end %>
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">新規入場者募集</h2>
+        <%# 部分テンプレートでフォームを表示する %>
+        <%= render partial: "form", locals: { stage: @stage } %>
+    </div>
   </div>
 </div>

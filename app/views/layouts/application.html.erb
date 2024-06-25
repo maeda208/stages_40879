@@ -15,7 +15,8 @@
       <div class="header__bar row">
         <h1 class="grid-6"><a href="/">My stage</a></h1>
         <div class="user_nav grid-6">
-          <a class="post" href="/tweets/new">募集する</a>
+           <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: :nav__logout %>
+           <%= link_to "New Stage", new_stage_path, class: :nav__btn %>
         </div>
       </div>
     </header>
