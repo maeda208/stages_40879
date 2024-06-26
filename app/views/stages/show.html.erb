@@ -1,18 +1,19 @@
-<div class="contents row">
-  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', edit_tweet_path(@tweet.id) %>
-        </li>
-        <li>
-          <%= link_to '削除', tweet_path(@tweet.id), data: { turbo_method: :delete } %>
-        </li>
-      </ul>
-    </div>
-    <p><%= @tweet.text %></p>
-    <span class="name"><%= @tweet.name %>
-    </span>
+<%= form_with model: @stage, local: true do |f|%>
+<%= @stage.title %></br>
+謝礼<%= @stage.reward %>円<br>
+<%= @stage.show_hour.name %><%= @stage.show_minute.name %>
+〜
+<%= @stage.end_hour.name %><%= @stage.end_minute.name %></br>
+会場
+<%= @stage.theater %></br>
+会場住所
+<%= @stage.address %></br>
+条件
+<%= @stage.conditions %></br>
+ <div class="participate">
+    <%= f.submit "参加を申し込む", class: :participate__btn  %>
   </div>
-</div>
+  <div class="return">
+    <%= f.submit "戻る", class: :return__btn  %>
+  </div>
+<% end %>

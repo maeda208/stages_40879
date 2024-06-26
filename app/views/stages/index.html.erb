@@ -1,0 +1,7 @@
+  <% @stages.each do |stage| %>
+      <li class='list'>
+        <%= link_to stage_path(stage) do %>
+           <%= stage.title %>
+            <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
+             <% end %>
+            <% end %>

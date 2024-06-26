@@ -12,6 +12,7 @@ class CreateStages < ActiveRecord::Migration[7.0]
       t.string :theater, null:false
       t.string :address, null:false
       t.text   :conditions, null:false
+      t.references :user,   null: false, foreign_key:true
       t.timestamps
     end
   end
