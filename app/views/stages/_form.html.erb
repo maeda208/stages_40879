@@ -1,13 +1,8 @@
-<div class="contents">
-  <div class="container">
-    <div class="edit">
-    <h3>編集する</h3>
-    </div>
-    </br>
-    <%= form_with(model: @stage, local: true) do |f| %>
-    <div class="field">
+<div class="new">
+<%= form_with model: stage, local: true do |f|%>
+<div class="field">
     <%= f.label :reward, "謝礼金額" %><br />
-    ¥<%= f.text_field :reward, id:"stage_reward" %>
+    <%= f.text_field :reward, id:"stage_reward" %>
   </div>
 
   <div class="field">
@@ -47,13 +42,9 @@
      <%= f.label :conditions, "条件" %><br />
   <%= f.text_area :conditions, class:"items-text", id:"stage_conditions", placeholder:"例）受付で入場料1500円を支払って入場すること。佐藤一郎に投票すること。" ,rows:"7" ,maxlength:"1000" %>
   </div>
- 
- <div class="edit_btn">
-  <%= link_to "削除",stage_path(@stage.id), data: {turbo_method: :delete}, class:"stage-destroy" %>
+
   <div class="actions">
-    <%= f.submit "更新", class: :form__btn  %>
-  </div>
+    <%= f.submit "募集する", class: :form__btn  %>
   </div>
 <% end %>
-</div>
 </div>

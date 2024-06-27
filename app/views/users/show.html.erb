@@ -1,9 +1,18 @@
-<div class="contents row">
-  <p><%= @nickname %>さんの投稿一覧</p>
-  <% @tweets.each do |tweet| %>
-    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
-      <p><%= tweet.text %></p>
-      <span class="name"><%= tweet.name %></span>
-    </div>
-  <% end %>
-</div>
+マイページ
+<div class='stages' >
+ <ul class='stage-lists'>
+  <% @stages.each do |stage| %>
+      <li class='list'>
+        <%= link_to stage_path(stage) do %>
+        <%= stage.title %></br>
+        <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
+         〜
+        <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
+        <%= stage.theater %></br> 
+        <% end %>
+        </li>
+         <% end %>
+        </ul>
+        </div>
+     
+    

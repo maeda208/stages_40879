@@ -3,15 +3,16 @@ class CreateStages < ActiveRecord::Migration[7.0]
     create_table :stages do |t|
       t.string :reward, null: false
       t.string :title, null: false
-      t.string :month, null: false
-      t.string :day, null:false
-      t.string :show_hour, null:false
-      t.string :show_minute, null: false
-      t.string :end_hour, null:false
-      t.string :end_minute, null:false
+      t.integer :month_id, null: false
+      t.integer :day_id, null:false
+      t.integer :show_hour_id, null:false
+      t.integer :show_minute_id
+      t.integer :end_hour_id, null:false
+      t.integer :end_minute_id
       t.string :theater, null:false
       t.string :address, null:false
       t.text   :conditions, null:false
+      t.references :user,   null: false, foreign_key:true
       t.timestamps
     end
   end

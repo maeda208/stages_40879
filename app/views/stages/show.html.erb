@@ -1,18 +1,29 @@
-<div class="contents row">
-  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', edit_tweet_path(@tweet.id) %>
-        </li>
-        <li>
-          <%= link_to '削除', tweet_path(@tweet.id), data: { turbo_method: :delete } %>
-        </li>
-      </ul>
-    </div>
-    <p><%= @tweet.text %></p>
-    <span class="name"><%= @tweet.name %>
-    </span>
+<div class="detail">
+<%= form_with model: @stage, local: true do |f|%>
+
+  <div class="detail-list">
+    <div class="show_title">
+<%= @stage.title %></br></div>
+<%= @stage.month.name %><%= @stage.day.name %>
+<%= @stage.show_hour.name %><%= @stage.show_minute.name %>
+〜
+<%= @stage.end_hour.name %><%= @stage.end_minute.name %></br>
+【謝礼】</br>
+<%= @stage.reward %>円<br>
+【会場】</br>
+<%= @stage.theater %></br>
+【会場住所】</br>
+<%= @stage.address %></br>
+【条件】</br>
+<%= @stage.conditions %></br>
+</div>
+<div class="show_btn" >
+  <div class="return">
+    <%= link_to "編集する", edit_stage_path, class: :return__btn %>
   </div>
+ <div class="participate">
+    <%= f.submit "参加を申し込む", class: :participate__btn  %>
+  </div>
+  </div>
+<% end %>
 </div>

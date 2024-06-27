@@ -10,21 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_24_152457) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_24_190000) do
   create_table "stages", charset: "utf8mb4", force: :cascade do |t|
     t.string "reward", null: false
     t.string "title", null: false
-    t.string "month", null: false
-    t.string "day", null: false
-    t.string "show_hour", null: false
-    t.string "show_minute", null: false
-    t.string "end_hour", null: false
-    t.string "end_minute", null: false
+    t.integer "month_id", null: false
+    t.integer "day_id", null: false
+    t.integer "show_hour_id", null: false
+    t.integer "show_minute_id"
+    t.integer "end_hour_id", null: false
+    t.integer "end_minute_id"
     t.string "theater", null: false
     t.string "address", null: false
     t.text "conditions", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_stages_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -44,4 +46,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_24_152457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "stages", "users"
 end

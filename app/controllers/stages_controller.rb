@@ -4,12 +4,16 @@ class StagesController < ApplicationController
   end
 
   def new
-    @stages = Stage.new
+    @stage = Stage.new
   end
 
   def create
-    Stage.create(stage_params)
-    redirect_to '/'
+    @stage = Stage.new(stage_params)
+    if @stage.save
+      redirect_to root_path @stage
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -34,7 +38,7 @@ class StagesController < ApplicationController
 
   private
   def stage_params
-    params.require(:stage).permit(:reward, :title, :month, :day, :show_hour, :show_minute, :end_hour, :end_minute, :theater, :address, :conditions).merge(user_id: current_user.id)
+    params.require(:stage).permit(:reward, :title, :month_id, :day_id, :show_hour_id, :show_minute_id, :end_hour_id, :end_minute_id, :theater, :address, :conditions).merge(user_id: current_user.id)
   end
 
 end
