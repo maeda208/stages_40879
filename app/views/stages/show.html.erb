@@ -1,19 +1,29 @@
+<div class="detail">
 <%= form_with model: @stage, local: true do |f|%>
-<%= @stage.title %></br>
-謝礼<%= @stage.reward %>円<br>
+
+  <div class="detail-list">
+    <div class="show_title">
+<%= @stage.title %></br></div>
+<%= @stage.month.name %><%= @stage.day.name %>
 <%= @stage.show_hour.name %><%= @stage.show_minute.name %>
 〜
 <%= @stage.end_hour.name %><%= @stage.end_minute.name %></br>
-会場
+【謝礼】</br>
+<%= @stage.reward %>円<br>
+【会場】</br>
 <%= @stage.theater %></br>
-会場住所
+【会場住所】</br>
 <%= @stage.address %></br>
-条件
+【条件】</br>
 <%= @stage.conditions %></br>
+</div>
+<div class="show_btn" >
+  <div class="return">
+    <%= link_to "編集する", edit_stage_path, class: :return__btn %>
+  </div>
  <div class="participate">
     <%= f.submit "参加を申し込む", class: :participate__btn  %>
   </div>
-  <div class="return">
-    <%= f.submit "戻る", class: :return__btn  %>
   </div>
 <% end %>
+</div>

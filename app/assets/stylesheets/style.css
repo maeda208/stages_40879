@@ -48,3 +48,9 @@ a {
   padding: 20px 0;
   text-align: center;
 }
+
+.copyright{
+  margin: 0 auto;
+  width: 250px;
+  color: red;
+}

@@ -5,6 +5,8 @@ class Stage < ApplicationRecord
   belongs_to :show_minute
   belongs_to :end_hour
   belongs_to :end_minute
+  belongs_to :month
+  belongs_to :day
   validates :reward, presence: true
   validates :title, presence: true
   validates :month_id, presence: true

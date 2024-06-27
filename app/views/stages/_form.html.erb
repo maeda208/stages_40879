@@ -1,6 +1,7 @@
+<div class="new">
 <%= form_with model: stage, local: true do |f|%>
 <div class="field">
-    <%= f.label :reward, "報酬金額" %><br />
+    <%= f.label :reward, "謝礼金額" %><br />
     <%= f.text_field :reward, id:"stage_reward" %>
   </div>
 
@@ -46,3 +47,4 @@
     <%= f.submit "募集する", class: :form__btn  %>
   </div>
 <% end %>
+</div>

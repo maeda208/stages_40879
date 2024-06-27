@@ -1,0 +1,12 @@
+.new{
+  margin:0 auto;
+  width: 300px;
+  font-size: 25px;
+}
+
+.page-heading{
+  margin:0 auto;
+  width: 300px;
+  font-size: 30px;
+  color: blue;
+}
