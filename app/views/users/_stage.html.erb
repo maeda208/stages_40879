@@ -1,6 +1,5 @@
-
-        <ul class="stage-lists" >
-  <% @stages.each do |stage| %>
+ <ul class='item-lists'>
+<% @stages.each do |stage| %>
       <li class='list'>
         <%= link_to stage_path(stage) do %>
         <%= stage.title %></br>
@@ -8,9 +7,7 @@
          〜
         <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
         <%= stage.theater %></br> 
-
-          <%= link_to "by " + stage.user.nickname, user_path(stage.user), class: :card__user %>
-         </li>
-          <% end %>  
+        </li>
+             <% end %>  
          <% end %>
          </ul>
