@@ -47,11 +47,15 @@
      <%= f.label :conditions, "条件" %><br />
   <%= f.text_area :conditions, class:"items-text", id:"stage_conditions", placeholder:"例）受付で入場料1500円を支払って入場すること。佐藤一郎に投票すること。" ,rows:"7" ,maxlength:"1000" %>
   </div>
- 
+ <script>
+	function check_form() {
+		return window.confirm("本当によろしいですか？？")
+};
+</script>
  <div class="edit_btn">
-  <%= link_to "削除",stage_path(@stage.id), data: {turbo_method: :delete}, class:"stage-destroy" %>
+  <%= link_to "削除",stage_path(@stage.id), data: {turbo_method: :delete}, class:"stage-destroy", :onclick => "return check_form()" %>
   <div class="actions">
-    <%= f.submit "更新", class: :form__btn  %>
+    <%= f.submit "更新", class: :form__btn,  :onclick => "return check_form()" %>
   </div>
   </div>
 <% end %>
