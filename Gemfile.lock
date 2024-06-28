@@ -98,6 +98,7 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.13.0)
+    ffi (1.17.0-x86_64-darwin)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -195,10 +196,14 @@ GEM
     rexml (3.3.0)
       strscan
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     selenium-webdriver (4.10.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_calendar (2.4.3)
+      rails (>= 3.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -252,7 +257,9 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.0)
+  sassc
   selenium-webdriver
+  simple_calendar (~> 2.4)
   sprockets-rails
   stimulus-rails
   turbo-rails
