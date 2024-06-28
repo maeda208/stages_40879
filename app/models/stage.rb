@@ -16,4 +16,7 @@ class Stage < ApplicationRecord
   validates :theater, presence: true
   validates :address, presence: true
   validates :conditions, presence: true
+  def start_time
+      created_at
+    end
 end

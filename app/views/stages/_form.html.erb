@@ -10,7 +10,7 @@
     <%= f.text_field :title, id:"stage_title" %>
   </div>
 
-  <div class="field">
+<div class="field">
     <%= f.label :date, "開催日時" %><br />
      <%= f.collection_select(:month_id, Month.all,:id, :name, {}, {class:"select-box", id:"stage_month"}) %>
     <%= f.collection_select(:day_id, Day.all,:id, :name, {}, {class:"select-box", id:"stage_day"}) %>
