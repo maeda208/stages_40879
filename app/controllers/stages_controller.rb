@@ -36,6 +36,9 @@ class StagesController < ApplicationController
     @stage = Stage.find(params[:id])
   end
 
+  def participate
+  end
+
   private
   def stage_params
     params.require(:stage).permit(:reward, :title, :month_id, :day_id, :show_hour_id, :show_minute_id, :end_hour_id, :end_minute_id, :theater, :address, :conditions, :start_time).merge(user_id: current_user.id)

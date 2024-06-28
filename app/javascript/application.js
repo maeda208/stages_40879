@@ -4,12 +4,11 @@ import "controllers"
 import "menu"
 import "simple_calendar";
 
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import Rails from "@rails/ujs"
+import Turbolinks from "turbolinks"
+import * as ActiveStorage from "@rails/activestorage"
+import "channels"
 
-document.addEventListener("DOMContentLoaded", function() {
-  flatpickr(".datetimepicker", {
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-  });
-});
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()

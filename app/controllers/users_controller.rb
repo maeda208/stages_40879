@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    Rails.logger.debug "params[:id]: #{params[:id]}"
     user = User.find(params[:id])
     @nickname = user.nickname
     @stages = user.stages.order("created_at DESC") 

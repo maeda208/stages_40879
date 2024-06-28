@@ -4,6 +4,7 @@
       <li class='list'>
         <%= link_to stage_path(stage) do %>
         <%= stage.title %></br>
+        <%= stage.month.name %><%= stage.day.name %></br>
         <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
          〜
         <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
