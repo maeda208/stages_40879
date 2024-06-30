@@ -35,9 +35,12 @@ class StagesController < ApplicationController
   def show
     @stage = Stage.find(params[:id])
     @apply = Apply.new
+    @applies = @stage.applies 
   end
 
   def participate
+    @stage = Stage.find(params[:id])
+    @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
   end
 
   private

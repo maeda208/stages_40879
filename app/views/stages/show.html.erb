@@ -1,34 +1,49 @@
 <div class="detail">
-<%= form_with model: [ @stage,@apply], local: true do |f|%>
+  <%= form_with model: [@stage, @apply], local: true do |f| %>
 
-  <div class="detail-list">
-    <div class="show_title">
-<%= @stage.title %></br></div>
-<%= @stage.month.name %><%= @stage.day.name %>
-<%= @stage.show_hour.name %><%= @stage.show_minute.name %>
-〜
-<%= @stage.end_hour.name %><%= @stage.end_minute.name %></br>
-【謝礼】</br>
-<%= @stage.reward %>円<br>
-【会場】</br>
-<%= @stage.theater %></br>
-【会場住所】</br>
-<%= @stage.address %></br>
-【条件】</br>
-<%= @stage.conditions %></br>
-</div>
-<div class="show_btn" >
-  <% if user_signed_in? && current_user.id == @stage.user_id %>
-  <div class="return">
-    <%= link_to "編集する", edit_stage_path, class: :return__btn %>
-    <% end %>
-  </div>
-  <% if user_signed_in? %>
- <div class="participate">
-  <%= f.hidden_field :stage_id, value: @stage.id %>
-    <%= f.submit "参加を申し込む", class: :participate__btn  %>
-  </div>
-  </div>
+   <div class="show_btn">
+      <% if user_signed_in? && current_user.id == @stage.user_id %>
+        <div class="return">
+          <%= link_to "編集する", edit_stage_path, class: :return__btn %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? && current_user.id != @stage.user_id %>
+        <div class="participate">
+          <%= f.hidden_field :stage_id, value: @stage.id %>
+          <%= f.submit "参加を申し込む", class: :participate__btn %>
+        </div>
+      <% end %>
+    </div> 
+  
+    <div class="detail-list">
+      <div class="show_title">
+        <%= @stage.title %></br>
+      </div>
+      <%= @stage.month.name %><%= @stage.day.name %>
+      <%= @stage.show_hour.name %><%= @stage.show_minute.name %>
+      〜
+      <%= @stage.end_hour.name %><%= @stage.end_minute.name %></br>
+      【謝礼】</br>
+      <%= @stage.reward %>円<br>
+      【会場】</br>
+      <%= @stage.theater %></br>
+      【会場住所】</br>
+      <%= @stage.address %></br>
+      【条件】</br>
+      <%= @stage.conditions %></br>
+    </div>
+
+   <!-- .show_btn の終了タグを修正 -->
+
+    <div class="applies-list">
+      <h3>申し込み一覧</h3>
+      <ul>
+        <% @applies.each do |apply| %>
+          <li><%= link_to "・" + apply.user.nickname,participate_stage_path(stage_id: @stage.id, user_id: apply.user.id),class: :apply_list %></li>
+        <% end %>
+      </ul>
+    </div>
+    
   <% end %>
-<% end %>
 </div>

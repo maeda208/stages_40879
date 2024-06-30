@@ -1,7 +1,12 @@
-マイページ
 <div class='stages' >
+  <div class='profile'>
+  <%= @user.nickname %>さん</br>
+   <%= @user.age %>歳</br>
+    性別:<%= @user.gender %>
+    </div>
  <ul class='stage-lists'>
   <% @stages.each do |stage| %>
+   
       <li class='list'>
         <%= link_to stage_path(stage) do %>
         <%= stage.title %></br>
@@ -9,6 +14,7 @@
          〜
         <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
         <%= stage.theater %></br> 
+        
         <% end %>
         </li>
          <% end %>
