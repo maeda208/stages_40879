@@ -34,6 +34,7 @@ class StagesController < ApplicationController
 
   def show
     @stage = Stage.find(params[:id])
+    @apply = Apply.new
   end
 
   def participate

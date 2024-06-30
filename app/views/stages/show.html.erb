@@ -1,5 +1,5 @@
 <div class="detail">
-<%= form_with model: @stage, local: true do |f|%>
+<%= form_with model: [ @stage,@apply], local: true do |f|%>
 
   <div class="detail-list">
     <div class="show_title">
@@ -18,12 +18,17 @@
 <%= @stage.conditions %></br>
 </div>
 <div class="show_btn" >
+  <% if user_signed_in? && current_user.id == @stage.user_id %>
   <div class="return">
     <%= link_to "編集する", edit_stage_path, class: :return__btn %>
+    <% end %>
   </div>
+  <% if user_signed_in? %>
  <div class="participate">
+  <%= f.hidden_field :stage_id, value: @stage.id %>
     <%= f.submit "参加を申し込む", class: :participate__btn  %>
   </div>
   </div>
+  <% end %>
 <% end %>
 </div>

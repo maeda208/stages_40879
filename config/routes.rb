@@ -8,9 +8,8 @@ Rails.application.routes.draw do
   end
   root to: 'stages#index'
   resources :stages do
-    collection do
-      get 'participate'
-    end
+    resources :applies
   end
   resources :users, only: [:show,:new,:create,:update]
+  get '*path', to: 'application#fallback_index_html', constraints: ->(request) { !request.xhr? && request.format.html? }
 end

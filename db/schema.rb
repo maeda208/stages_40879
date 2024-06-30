@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_28_075457) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_29_143324) do
+  create_table "applies", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "stage_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stage_id"], name: "index_applies_on_stage_id"
+    t.index ["user_id"], name: "index_applies_on_user_id"
+  end
+
   create_table "stages", charset: "utf8mb4", force: :cascade do |t|
     t.string "reward", null: false
     t.string "title", null: false
@@ -50,5 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_28_075457) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "applies", "stages"
+  add_foreign_key "applies", "users"
   add_foreign_key "stages", "users"
 end
