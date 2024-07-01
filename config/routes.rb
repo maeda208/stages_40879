@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :applies
   end
+  
   resources :users, only: [:show,:new,:create,:update]
   resources :rooms, only: [:new, :create]
   get '*path', to: 'application#fallback_index_html', constraints: ->(request) { !request.xhr? && request.format.html? }
