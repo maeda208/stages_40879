@@ -44,7 +44,10 @@ class StagesController < ApplicationController
        if @apply.nil?
       # エラーハンドリング: 例えば、@applyがnilの場合に適切なメッセージを表示する
       redirect_to root_path, alert: '申し込みが見つかりません。'
+      return
     end
+    @comment = Comment.new
+    @comments = @stage.comments
   end
 
   private

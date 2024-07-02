@@ -11,10 +11,11 @@ Rails.application.routes.draw do
     member do
       get 'participate'
     end
-    resources :applies
+    resources :applies do
+      resources :comments, only: :create
+    end
   end
   
   resources :users, only: [:show,:new,:create,:update]
-  resources :rooms, only: [:new, :create]
   get '*path', to: 'application#fallback_index_html', constraints: ->(request) { !request.xhr? && request.format.html? }
 end

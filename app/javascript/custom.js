@@ -1,12 +1,11 @@
-window.addEventListener('turbo:load', function(){
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('turbo:load', function() {
   document.querySelectorAll('.room__btn').forEach(button => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
 
       // Send an AJAX request to the server
       fetch(button.href, {
-        method: 'GET',
+        method: 'POST', // Use POST instead of GET
         headers: {
           'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
           'Accept': 'application/json'
@@ -19,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const approvalMessage = button.nextElementSibling;
         approvalMessage.style.display = 'block';
       })
-      .catch(error => console.error('Error:', error));
+      .catch(error => {
+        console.error('Error:', error);
+      });
     });
   });
-});
 });
