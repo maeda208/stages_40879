@@ -1,9 +1,13 @@
+
 <div class='profile'>
     <%= @apply.user.nickname %>さん</br>
     <%= @apply.user.age %>歳</br>
     性別:<%= @apply.user.gender %></br>
+    <%= form_with model: [@stage,@apply], local: true do |form| %>
     <div class='approval'>
-      <%= link_to "承認する", participate_stage_path(@stage, user_id: @apply.user.id), class: 'room__btn', method: :post, data: { turbo_method: :post, turbo_action: 'replace', turbo_frame: '_top' } %>
+     <div class="btn-container">
+  <button id="approval-button">承認する</button>
+</div>
       <span class='approval-message' style='display:none;'>参加が承認されました</span>
     </div>
       <div class="container">
@@ -11,6 +15,7 @@
       <%= form_with model:[@stage, @apply,@comment],local: true do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
         <%= form.submit "SEND" %>
+      <% end %>
       <% end %>
       <% end %>
   </div>
