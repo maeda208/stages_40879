@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   before_save :calculate_age
-
-  has_many :stages
+has_many :applies
+  has_many :stages, through: :applies
+  has_many :applied_stages, through: :applies, source: :stage
+  has_many :comments
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :nickname, presence: true

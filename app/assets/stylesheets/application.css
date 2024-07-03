@@ -13,9 +13,4 @@
  *= require_tree .
  *= require_self
  */
- @import "simple_calendar";
- @import "flatpickr/dist/flatpickr.min.css";
- *= require simple_calendar #今回追記
- *= require_tree .
- *= require_self
- */
+ 

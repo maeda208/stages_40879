@@ -54,3 +54,25 @@ a {
   width: 250px;
   color: red;
 }
+
+.room__btn{
+  font-size: 40px;
+  margin: 0 auto;
+  color: white;
+  background-color: navy;
+ 
+}
+
+.profile{
+  font-size: 35px;
+  width: 200px;
+  margin: 0 auto;
+  color: navy;
+}
+
+.comments{
+  font-size: 25px;
+  width: 230px;
+  margin: 0 auto;
+}
+

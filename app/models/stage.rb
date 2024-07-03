@@ -7,6 +7,9 @@ class Stage < ApplicationRecord
   belongs_to :end_minute
   belongs_to :month
   belongs_to :day
+  has_many :applies
+  has_many :applicants, through: :applies, source: :user
+  has_many :comments
   validates :reward, presence: true
   validates :title, presence: true
   validates :month_id, presence: true
