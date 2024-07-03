@@ -6,7 +6,7 @@
     <%= form_with model: [@stage,@apply], local: true do |form| %>
     <div class='approval'>
      <div class="btn-container">
-  <button id="approval-button">承認する</button>
+ <button id="approval-button" class="room__btn" data-url="<%= participate_stage_path(@stage, user_id: current_user.id) %>" data-apply-id="<%= @apply.id %>">承認する</button>
 </div>
       <span class='approval-message' style='display:none;'>参加が承認されました</span>
     </div>
@@ -18,7 +18,7 @@
       <% end %>
       <% end %>
       <% end %>
-  </div>
+  </div> 
   </div>
   <div class="comments">
       <h1>＜コメント一覧＞</h1>

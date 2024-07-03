@@ -42,7 +42,6 @@ class StagesController < ApplicationController
     @stage = Stage.find(params[:id])
     @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
        if @apply.nil?
-      # エラーハンドリング: 例えば、@applyがnilの場合に適切なメッセージを表示する
       redirect_to root_path, alert: '申し込みが見つかりません。'
       return
     end
