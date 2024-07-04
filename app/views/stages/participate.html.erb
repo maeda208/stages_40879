@@ -14,6 +14,8 @@
     <% if user_signed_in? %>
       <%= form_with model:[@stage, @apply,@comment],local: true do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <br>(例)参加よろしくお願いします。</br>
+            申し訳ありません、定員に達しました。<br>
         <%= form.submit "SEND" %>
       <% end %>
       <% end %>
@@ -28,6 +30,8 @@
           <%= comment.text %>
         </p>
       <% end %>
+      <%= link_to "支払い", pay_stage_path(stage_id: @stage.id, user_id: @apply.user.id), class: :pay__btn %>
 </div>
+
 
   

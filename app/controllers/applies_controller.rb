@@ -10,6 +10,18 @@ class AppliesController < ApplicationController
       redirect_to @apply.stage
     end
   end
+
+    def update
+      @apply = Apply.find_by(id: params[:id])
+      @stage = @apply.stage
+      payment = params[:apply][:maney].to_i
+      ActiveRecord::Base.transaction do
+          current_user.update!(maney: current_user.maney.to_i - payment)
+          @apply.user.update!(maney: @apply.user.maney.to_i + payment)
+      end
+      redirect_to root_path
+    end
+    
   private
   def apply_params
     params.require(:apply).permit(:stage_id)

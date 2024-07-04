@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     member do
       get 'participate'
     end
+    member do
+      get 'pay'
+    end
+    member do
+      get 'some'
+    end
     resources :applies do
       resources :comments, only: :create
     end

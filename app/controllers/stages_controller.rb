@@ -49,6 +49,16 @@ class StagesController < ApplicationController
     @comments = @stage.comments
   end
 
+  def pay
+     @stage = Stage.find(params[:id])
+     @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
+       if @apply.nil?
+      redirect_to root_path, alert: '申し込みが見つかりません。'
+      return
+    end
+   end
+
+
   private
   def stage_params
     params.require(:stage).permit(:reward, :title, :month_id, :day_id, :show_hour_id, :show_minute_id, :end_hour_id, :end_minute_id, :theater, :address, :conditions, :start_time).merge(user_id: current_user.id)

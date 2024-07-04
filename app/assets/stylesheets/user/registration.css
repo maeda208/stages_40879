@@ -158,3 +158,36 @@
   text-align: right;
   cursor: pointer;
 }
+
+#custom-date-select select {
+  width: 70px;  
+}
+
+
+#stage_show_hour {
+  width: 70px;
+}
+
+#stage_show_minute {
+  width: 70px;
+}
+
+#stage_end_hour {
+  width: 70px;
+}
+
+#stage_end_minute {
+  width: 70px;
+}
+
+#stage_month {
+  width: 70px;
+}
+
+#stage_day {
+  width: 70px;
+}
+
+.registration{
+margin: 0 auto;
+}
