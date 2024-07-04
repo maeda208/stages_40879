@@ -32,21 +32,21 @@
           <%= f.text_field :first_name, id:"user_firstname" %>
         </div>
 
-         <div class="gendar">
-         <%= f.label :gender, "性別" %><br />
+         <div id='custom-date-select''>
+         <%= f.label :gender, "性別" %>
          <%= f.select :gender, options_for_select([['男性', 'male'], ['女性', 'female']]) %>
           </div>
 
-          <div class="birth_date">
+         <div id='custom-date-select'>
            <%= f.label :birth_date, "生年月日" %>
-           <%= f.date_select :birth_date, start_year: 1900, end_year: Date.today.year, class: 'custom-date-select' %>
+           <%= f.date_select :birth_date, start_year: 1900, end_year: Date.today.year %>
          </div>
         <div class="field">
           <%= f.label :phonenumber, "電話番号" %><br />
           <%= f.text_field :phonenumber, id:"user_phonenumber" %>
         </div>
 
-        <div class="actions">
+        <div class="registration">
           <%= f.submit "新規登録", class: :form__btn  %>
         </div>
       <% end %>

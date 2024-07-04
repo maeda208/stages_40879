@@ -20,9 +20,3 @@
   width: 80px;
 }
 
-.custom-date-select select {
-  width: 30px; /* 必要に応じて幅を調整 */
-  padding: 5px;
-  margin-right: 5px;
-  display: inline-block;
-}

@@ -65,14 +65,47 @@ a {
 
 .profile{
   font-size: 35px;
-  width: 200px;
+  width: 260px;
   margin: 0 auto;
   color: navy;
 }
 
 .comments{
-  font-size: 25px;
-  width: 230px;
+  font-size: 23px;
+  width: 260px;
   margin: 0 auto;
+}
+
+.approval-message{
+  font-size: 25px;
+  color: red;
+}
+
+.container{
+  font-size: 20px;
+}
+
+.pay__btn{
+  width: 100px;
+  margin: 0 auto;
+ background-color: orange;
+ font-size: 30px;
+ padding: 5px;
+}
+
+.pay{
+  font-size: 23px;
+  width: 300px;
+  color: navy;
+  margin: 0 auto;
+}
+
+.arrow{
+  width: 200px;
+  margin: 0 auto;
+}
+
+#user_maney {
+  width: 100px;  /* 任意の幅に調整してください */
 }
 
