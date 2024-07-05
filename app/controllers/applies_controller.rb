@@ -14,12 +14,11 @@ class AppliesController < ApplicationController
     def update
       @apply = Apply.find_by(id: params[:id])
       @stage = @apply.stage
-      payment = params[:apply][:maney].to_i
+      payment = params.dig(:apply, :money).to_i
       ActiveRecord::Base.transaction do
-          current_user.update!(maney: current_user.maney.to_i - payment)
-          @apply.user.update!(maney: @apply.user.maney.to_i + payment)
+          current_user.update!(money: current_user.money.to_i - payment)
+          @apply.user.update!(money: @apply.user.money.to_i + payment)
       end
-      redirect_to root_path
     end
     
   private

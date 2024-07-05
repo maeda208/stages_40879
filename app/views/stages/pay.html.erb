@@ -1,11 +1,11 @@
 <%= form_with model: [@stage, @apply], local: true do |f| %>
   <div class="pay">
-<div class='pay_maney'>
+<div class='pay_money'>
     <%= current_user.nickname %>さん</br>
-    残高 ¥.<%= current_user.maney %></br>
+    残高 ¥.<%= current_user.money %></br>
      <div class="field">
-          <%= f.label :maney, "謝礼金" %><br />
-          ¥.<%= f.text_field :maney, id:"user_maney" %>
+          <%= f.label :money, "謝礼金" %><br />
+          ¥.<%= f.text_field :money, id:"user_money" %>
         </div>
         <div class="arrow">⬇️</div>
         <%= @apply.user.nickname %>さん</br>

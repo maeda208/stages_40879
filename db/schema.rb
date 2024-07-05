@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_04_085657) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_04_182606) do
   create_table "applies", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stage_id", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_04_085657) do
     t.date "birth_date"
     t.integer "age"
     t.string "gender"
-    t.integer "maney"
+    t.integer "money"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

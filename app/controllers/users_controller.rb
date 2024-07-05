@@ -16,6 +16,19 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
+  def do_charge
+    if request.post?
+    current_user.money += params[:user][:money].to_i
+    if current_user.save
+      redirect_to root_path
+    else
+      render 'charge'
+    end
+  else
+  end
+  end
+
   private
 
   def user_params

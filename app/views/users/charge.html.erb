@@ -1,0 +1,38 @@
+<%= form_with model: current_user, url: charge_user_path(current_user), method: :post, id: 'charge-form', local: true do |f| %>
+<%= current_user.nickname %>さん</br>
+    残高 ¥.<%= current_user.money %>
+       <div class="field">
+          <%= f.label :money, "チャージ額" %><br />
+          ¥.<%= f.text_field :money,value:'', id:"user_money" %>
+        </div>
+      
+ <div class='credit-card-form'>
+      <h1 class='info-input-haedline'>
+        クレジットカード情報入力
+      </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">カード情報</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div id="number-form" class="input-default"></div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">有効期限</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-expiration-date-wrap'>
+          <div id="expiry-form" class="input-default"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">セキュリティコード</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div id="cvc-form" class="input-default"></div>
+      </div>
+    </div>
+   <%= f.submit "チャージ", class: :charge__btn  %>
+          <% end %>

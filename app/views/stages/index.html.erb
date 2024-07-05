@@ -1,17 +1,20 @@
-
-        <ul class="stage-lists" >
+<div class="index">
+<% if user_signed_in? %>
+<%= link_to "チャージ", charge_user_path(current_user),data: { turbo: false },class: :charge__btn  %>
+  <% end %>
+ <ul class="stage-lists" >
   <% @stages.each do |stage| %>
-      <li class='list'>
-        <%= link_to stage_path(stage) do %>
-        <%= stage.title %></br>
-        <%= stage.month.name %><%= stage.day.name %></br>
-        <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
-         〜
-        <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
-        <%= stage.theater %></br> 
-
-          <%= link_to "by " + stage.user.nickname, user_path(stage.user), class: :card__user %>
+  <li class='list'>
+  <%= link_to stage_path(stage) do %>
+  <%= stage.title %></br>
+  <%= stage.month.name %><%= stage.day.name %></br>
+  <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
+    〜
+  <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
+   <%= stage.theater %></br> 
+      <% end %>
+    <%= link_to "by " + stage.user.nickname, user_path(stage.user), class: :card__user %>
          </li>
           <% end %>  
-         <% end %>
          </ul>
+         </div>
