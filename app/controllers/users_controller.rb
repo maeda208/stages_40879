@@ -17,21 +17,41 @@ class UsersController < ApplicationController
     end
   end
 
+  def charge
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
+  end
+
   def do_charge
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     if request.post?
+      charge = charge_money
+      if charge.paid
     current_user.money += params[:user][:money].to_i
     if current_user.save
       redirect_to root_path
     else
+      flash[:alert] = 'チャージができませんでした。'
       render 'charge'
     end
   else
+    flash[:alert] = 'チャージができませんでした。'
+    render 'charge'
+  end
   end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :birth_date)
+    params.require(:user).permit(:name, :email, :birth_date, :money).merge(token: params[:token])
   end
+
+  def charge_money
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    charge = Payjp::Charge.create(
+      amount: params[:user][:money],  
+      card: params[:token],    
+      currency: 'jpy'
+    )
+end
 end
