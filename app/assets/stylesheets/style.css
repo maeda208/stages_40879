@@ -65,8 +65,7 @@ a {
 
 .profile{
   font-size: 35px;
-  width: 260px;
-  margin: 0 auto;
+ text-align: center;
   color: navy;
 }
 
@@ -83,6 +82,10 @@ a {
 
 .container{
   font-size: 20px;
+}
+.bill__btn{
+  width: 100px;
+  margin: 0 auto;
 }
 
 .pay__btn{
@@ -107,5 +110,26 @@ a {
 
 #user_maney {
   width: 100px;  /* 任意の幅に調整してください */
+}
+
+#number-form{
+  width: 300px;
+  margin: 0 auto;
+}
+
+#expiry-form{
+  width: 100px;
+  margin: 0 auto;
+}
+
+#cvc-form{
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.form-group{
+ text-align: center;
+  width: 500px;
 }
 

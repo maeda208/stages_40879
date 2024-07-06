@@ -2,24 +2,53 @@
   <div class='profile'>
   <%= @user.nickname %>さん</br>
    <%= @user.age %>歳</br>
-    性別:<%= @user.gender %>
+    <%= @user.gender %>
     </div>
+    <div class='user_stages'>
+    <div class='user_stage'>
+    あなたが募集したステージ</div>
  <ul class='stage-lists'>
   <% @stages.each do |stage| %>
-   
       <li class='list'>
         <%= link_to stage_path(stage) do %>
         <%= stage.title %></br>
+        <%= stage.month.name %><%= stage.day.name %>
         <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
          〜
         <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
         <%= stage.theater %></br> 
-        
+         <div class="applies-list">
+      <h3>申し込み一覧</h3>
+      <ul>
+        <% stage.applies.each do |apply| %>
+          <li><%= link_to "・" + apply.user.nickname,participate_stage_path(id: stage.id, user_id: apply.user.id),class: :apply_list %></li>
+        <% end %>
+      </ul>
+    </div>
         <% end %>
         </li>
          <% end %>
         </ul>
-        <%= link_to "参加リクエスト", participate_stage_path, class: :participate__btn %>
+        <div class='user_stage'>
+          あなたが参加申し込みをしたステージ</div>
+        <ul class='stage-lists'>
+<% @applied_stages.each do |stage| %>
+  <li class='list'>
+    <%= link_to stage_path(stage) do %>
+    <%= stage.title %></br>
+    <%= stage.month.name %><%= stage.day.name %>
+    <%= stage.reward %>円<br><%= stage.show_hour.name %><%= stage.show_minute.name %>
+         〜
+        <%= stage.end_hour.name %><%= stage.end_minute.name %></br>
+        <%= stage.theater %></br> 
+        by.<%= stage.user.nickname %></br>
+  <%= link_to "コメントを送る" , participate_stage_path(id: stage.id, user_id: current_user.id), class: :stage_user %>
+
+     <% end %>
+     <% end %>
+     </li>
+       </ul>
+       </div>
         </div>
      
     

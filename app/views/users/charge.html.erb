@@ -1,12 +1,13 @@
 <%= include_gon %>
 <%= form_with model: current_user, url: charge_user_path(current_user), method: :post, id: 'charge-form', local: true do |f| %>
+<div class='charge_name'>
 <%= current_user.nickname %>さん</br>
     残高 ¥.<%= current_user.money %>
        <div class="field">
           <%= f.label :money, "チャージ額" %><br />
           ¥.<%= f.text_field :money,value:'', id:"user_money" %>
         </div>
-      
+      </div>
  <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
         クレジットカード情報入力

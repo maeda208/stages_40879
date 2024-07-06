@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       get 'participate'
       get 'pay'
+      get 'completion'
     end
     resources :applies do
       resources :comments, only: :create

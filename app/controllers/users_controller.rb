@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @stages = @user.stages.order("created_at DESC") 
-    @apply = Apply.find_by(user_id: @user.id)
+    @stages = Stage.where(user_id: @user.id).order("created_at DESC")
+    @applies = @user.applies.order("created_at DESC")
+    @applied_stages = @user.applied_stages.order("created_at DESC") 
   end
   def new
     @user = User.new

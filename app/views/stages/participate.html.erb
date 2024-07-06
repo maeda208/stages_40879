@@ -1,23 +1,30 @@
-
+<div class="detail-lists">
+      <div class="show_title">
+        <%= @stage.title %></br>
+      </div>
+      <%= @stage.month.name %><%= @stage.day.name %>
+      <%= @stage.show_hour.name %><%= @stage.show_minute.name %>
+      〜
+      <%= @stage.end_hour.name %><%= @stage.end_minute.name %></br>
+      【謝礼】</br>
+      <%= @stage.reward %>円<br>
+      </div>
 <div class='profile'>
     <%= @apply.user.nickname %>さん</br>
     <%= @apply.user.age %>歳</br>
-    性別:<%= @apply.user.gender %></br>
+    <%= translate_gender(@apply.user.gender) %></br>
     <%= form_with model: [@stage,@apply], local: true do |form| %>
-    <div class='approval'>
-     <div class="btn-container">
+    
+      <% if current_user.id == @stage.user_id %>
  <button id="approval-button" class="room__btn" data-url="<%= participate_stage_path(@stage, user_id: current_user.id) %>" data-apply-id="<%= @apply.id %>">承認する</button>
-</div>
+ <% end %>
       <span class='approval-message' style='display:none;'>参加が承認されました</span>
-    </div>
       <div class="container">
-    <% if user_signed_in? %>
       <%= form_with model:[@stage, @apply,@comment],local: true do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
         <br>(例)参加よろしくお願いします。</br>
-            申し訳ありません、定員に達しました。<br>
+            (例)申し訳ありません、定員に達しました。<br>
         <%= form.submit "SEND" %>
-      <% end %>
       <% end %>
       <% end %>
   </div> 
@@ -30,8 +37,9 @@
           <%= comment.text %>
         </p>
       <% end %>
+      <div class='bill__btn'>
       <%= link_to "支払い", pay_stage_path(stage_id: @stage.id, user_id: @apply.user.id), class: :pay__btn %>
+      </div>
 </div>
-
-
+</div>
   

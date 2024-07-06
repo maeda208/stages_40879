@@ -19,6 +19,7 @@ class AppliesController < ApplicationController
           current_user.update!(money: current_user.money.to_i - payment)
           @apply.user.update!(money: @apply.user.money.to_i + payment)
       end
+      redirect_to completion_stage_path(@stage) 
     end
     
   private
