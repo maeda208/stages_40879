@@ -10,18 +10,18 @@ Rails.application.routes.draw do
   resources :stages do
     member do
       get 'participate'
-    end
-    member do
       get 'pay'
-    end
-    member do
-      get 'some'
+      get 'completion'
     end
     resources :applies do
       resources :comments, only: :create
     end
   end
   
-  resources :users, only: [:show,:new,:create,:update]
-  get '*path', to: 'application#fallback_index_html', constraints: ->(request) { !request.xhr? && request.format.html? }
+  resources :users, only: [:show]do
+  member do
+    get 'charge', to: 'users#charge', as: 'charge_user'
+    post 'charge', to: 'users#do_charge'
+  end
+end
 end

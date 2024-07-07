@@ -77,4 +77,5 @@ gem 'active_hash'
 gem "simple_calendar", "~> 2.4"
 gem "sassc"
 gem 'turbo-rails'
-
+gem 'payjp'
+gem 'gon'

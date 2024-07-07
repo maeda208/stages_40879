@@ -12,8 +12,18 @@
   font-size: 25px;
   margin:0 auto;
   background-color: bisque;
-  width: 700px;
+  width: 500px;
 }
+
+.detail-lists{
+  font-size: 25px;
+ text-align: center;
+ background-color: bisque;
+ width: 300px;
+ margin: 0 auto;
+}
+
+
 
 .participate{
   margin: 0 auto;
@@ -38,7 +48,7 @@
   background-color: green;
   padding: 20px;
   text-align: center;
-  margin-right: 20px;
+  margin: 0 auto;
 }
 
 .return__btn{
@@ -67,12 +77,14 @@
 
 .edit_btn{
   display: flex; 
+  text-align: center;
 }
 
 .stage-destroy{
   width: 50px;
  background-color: gray;
  color: white;
+ padding: 5px;
 }
 
 .actions{
@@ -94,8 +106,22 @@
 }
 
 .apply_list{
-  
   width: 100px;
   font-size: 20px;
   color:red;
+}
+
+.charge_name{
+width: 300px;
+margin: 0 auto;
+text-align: center;
+font-size: 20px;
+margin-bottom: 15px;
+color: darkblue;
+}
+
+.participate-message{
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 30px;
 }

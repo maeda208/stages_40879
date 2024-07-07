@@ -29,7 +29,7 @@ class StagesController < ApplicationController
   def update
     stage = Stage.find(params[:id])
     stage.update(stage_params)
-    redirect_to root_path
+    redirect_to stage_path
   end
 
   def show
@@ -50,12 +50,12 @@ class StagesController < ApplicationController
   end
 
   def pay
-     @stage = Stage.find(params[:id])
-     @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
-       if @apply.nil?
-      redirect_to root_path, alert: '申し込みが見つかりません。'
-      return
-    end
+    @stage = Stage.find(params[:id])
+    @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
+      redirect_to root_path, alert: '申し込みが見つかりません。'if @apply.nil?
+   end
+
+   def completion
    end
 
 
