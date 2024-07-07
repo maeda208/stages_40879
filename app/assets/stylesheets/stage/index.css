@@ -12,6 +12,8 @@ a {
   background-color: bisque;
   display: flex;
  justify-content: center;
+ display: flex;
+ flex-wrap: wrap;
 }
 
 .list {
@@ -58,3 +60,4 @@ background-color: blue;
   
   width: 100vw;
 }
+

@@ -11,8 +11,9 @@
       <% if user_signed_in? && current_user.id != @stage.user_id %>
         <div class="participate">
           <%= f.hidden_field :stage_id, value: @stage.id %>
-          <%= f.submit "参加を申し込む", class: :participate__btn %>
+          <%= f.submit "参加を申し込む",id: 'participate-button',  data: { user_id: current_user.id, stage_id: @stage.id },class: :participate__btn %>
         </div>
+         <span class='participate-message' style='display:none;'>参加を申し込みました</span>
       <% end %>
     </div> 
   

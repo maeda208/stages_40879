@@ -29,7 +29,7 @@ class StagesController < ApplicationController
   def update
     stage = Stage.find(params[:id])
     stage.update(stage_params)
-    redirect_to root_path
+    redirect_to stage_path
   end
 
   def show
