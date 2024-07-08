@@ -18,22 +18,23 @@
       <% if current_user.id == @stage.user_id %>
  <button id="approval-button" class="room__btn" data-url="<%= participate_stage_path(@stage, user_id: current_user.id) %>" data-apply-id="<%= @apply.id %>">承認する</button>
  <% end %>
+   <% end %>
       <span class='approval-message' style='display:none;'>参加が承認されました</span>
       <div class="container">
-      <%= form_with model:[@stage, @apply,@comment],local: true do |form| %>
+      <%= form_with model:[@stage, @apply, @comment],local: true do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
         <br>(例)参加よろしくお願いします。</br>
             (例)申し訳ありません、定員に達しました。<br>
         <%= form.submit "SEND" %>
       <% end %>
   </div> 
-  <% end %>
+
   </div>
   <div class="comments">
       <h1>＜コメント一覧＞</h1>
       <% @comments.each do |comment| %>
         <p>
-         
+           <%= comment.user.nickname %>
           <%= comment.text %>
         </p>
       <% end %>

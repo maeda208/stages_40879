@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.create(comment_params)
-    redirect_to root_path
+    @stage = Stage.find(params[:stage_id])
+    @apply = Apply.find(params[:apply_id])
+    @comment = Comment.create(comment_params)
+    redirect_to participate_stage_path(@stage, user_id: @apply.user.id)
   end
 
   private

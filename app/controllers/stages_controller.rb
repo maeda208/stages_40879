@@ -39,12 +39,10 @@ class StagesController < ApplicationController
   end
 
   def participate
-    @stage = Stage.find(params[:id])
+    @stage = Stage.find(params[:stage_id] || params[:id])
     @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
-     
-    
     @comment = Comment.new
-    @comments = @stage.comments
+    @comments = Comment.where(stage_id: @stage.id, apply_id: @apply.id)
   end
 
   def pay
@@ -55,6 +53,15 @@ class StagesController < ApplicationController
 
    def completion
    end
+   def approval
+    @stage = Stage.find(params[:id])
+    @apply = Apply.find(params[:apply_id])
+    # 承認の処理...
+    @comments = @stage.comments
+    # 処理が終わったら再読み込み
+  end
+
+
 
 
   private
