@@ -56,8 +56,16 @@ font-size: 25px;
 background-color: blue;
 }
 
-.index{
-  
-  width: 100vw;
+
+.inquiry{
+  color: white;
+  background-color: blueviolet;
+  margin: 0 auto;
+  width: 350px;
+  font-size: 30px;
+  display: block;
 }
 
+.index{
+  width: 100%;
+}
