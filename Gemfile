@@ -79,3 +79,4 @@ gem "sassc"
 gem 'turbo-rails'
 gem 'payjp'
 gem 'gon'
+gem 'dotenv-rails'
