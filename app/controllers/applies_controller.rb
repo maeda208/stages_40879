@@ -23,7 +23,7 @@ class AppliesController < ApplicationController
         redirect_to completion_stage_path(@stage)
       else
         flash[:error] = "適切なデータが送信されませんでした。もう一度お試しください。"
-        redirect_to participate_stage_path
+        redirect_to participate_stage_path(@stage)
       end
     end
     

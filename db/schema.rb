@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_04_182606) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_07_204623) do
   create_table "applies", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stage_id", null: false
@@ -28,6 +28,22 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_04_182606) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "contacts", charset: "utf8mb4", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.text "message"
+    t.string "bank"
+    t.integer "branch"
+    t.integer "account"
+    t.integer "amount"
+    t.integer "commission"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
   create_table "room_users", charset: "utf8mb4", force: :cascade do |t|
@@ -86,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_04_182606) do
 
   add_foreign_key "applies", "stages"
   add_foreign_key "applies", "users"
+  add_foreign_key "contacts", "users"
   add_foreign_key "room_users", "rooms"
   add_foreign_key "room_users", "users"
   add_foreign_key "stages", "users"

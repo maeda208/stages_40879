@@ -98,6 +98,10 @@ GEM
       responders
       warden (~> 1.2.3)
     domain_name (0.6.20240107)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     erubi (1.13.0)
     ffi (1.17.0-x86_64-darwin)
     globalid (1.2.1)
@@ -274,6 +278,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dotenv-rails
   gon
   importmap-rails
   jbuilder

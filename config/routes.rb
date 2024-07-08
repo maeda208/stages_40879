@@ -24,4 +24,10 @@ Rails.application.routes.draw do
     post 'charge', to: 'users#do_charge'
   end
 end
+resources :contacts, only: [:new, :create] do
+  collection do
+    post :confirm
+    get :complete
+  end
+end
 end

@@ -41,10 +41,8 @@ class StagesController < ApplicationController
   def participate
     @stage = Stage.find(params[:id])
     @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
-       if @apply.nil?
-      redirect_to root_path, alert: '申し込みが見つかりません。'
-      return
-    end
+     
+    
     @comment = Comment.new
     @comments = @stage.comments
   end
