@@ -38,8 +38,10 @@
           <%= comment.text %>
         </p>
       <% end %>
+        <% if current_user.id == @stage.user_id %>
       <div class='bill__btn'>
       <%= link_to "支払い", pay_stage_path(stage_id: @stage.id, user_id: @apply.user.id), class: :pay__btn %>
 </div>
+ <% end %>
 </div>
   

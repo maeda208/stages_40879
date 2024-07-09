@@ -11,14 +11,14 @@
       <%= render 'layouts/error_messages', model: f.object %>
 
         <div class="form-groups">
-          <%= f.label :name, 'お名前' %>
+          <%= f.label :name, 'お名前 必須' %>
           <div style="display: flex;">
           <%= f.text_field :last_name, autofocus: true,placeholder:'鈴木', class:'form-control' %>
           <%= f.text_field :first_name,  placeholder:'太郎', class:'form-control' %>
         </div>
         </div>
         <div class="form-group">
-          <%= f.label :email, 'メールアドレス' %>
+          <%= f.label :email, 'メールアドレス 必須' %>
           <%= f.text_field :email, placeholder:'test@hoge.com', class:'form-control' %>
         </div>
         <div class="form-group">

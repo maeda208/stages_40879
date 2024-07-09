@@ -2,8 +2,9 @@
   <div class='profile'>
   <%= @user.nickname %>さん</br>
    <%= @user.age %>歳</br>
-    <%= @user.gender %>
+   <%= translate_gender(@user.gender) %>
     </div>
+   <% if current_user == @user %>
     <div class='user_stages'>
     <div class='user_stage'>
     あなたが募集したステージ</div>
@@ -49,6 +50,7 @@
      </li>
        </ul>
        </div>
+       <% end %>
         </div>
      
     
