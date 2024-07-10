@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_initialize :set_default_values
   before_save :calculate_age
   has_many :applies
   has_many :owned_stages, class_name: 'Stage' 
@@ -17,6 +18,9 @@ class User < ApplicationRecord
 end
 
 private
+def set_default_values
+  self.money ||= 0
+end
 
   def calculate_age
     return unless birth_date.present?
