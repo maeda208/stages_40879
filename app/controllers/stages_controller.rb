@@ -1,6 +1,6 @@
 class StagesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:edit,:destroy,:participate, :pay,:completion]
-  before_action :set_stage, only: [:edit, :show, :pay]
+  before_action :set_stage, only: [:edit, :show,:destroy, :pay]
   before_action :user_signed, only: [:edit, :destroy, :pay, :comletion]
   def index
     @stages = Stage.includes(:user).order("created_at DESC")
@@ -20,8 +20,7 @@ class StagesController < ApplicationController
   end
 
   def destroy
-    stage = Stage.find(params[:id])
-    stage.destroy
+    @stage.destroy
     redirect_to root_path
   end
 
