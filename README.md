@@ -64,7 +64,4 @@ JavaScript
 # 改善点
 
 # 制作時間
- confirm_contacts POST   /contacts/confirm(.:format)                                                                       contacts#confirm
-                       complete_contacts GET    /contacts/complete(.:format)                                                                      contacts#complete
-                                contacts POST   /contacts(.:format)                                                                               contacts#create
-                             new_contact GET    /contacts/new(.:format)                                                                           contacts#new
+ 
