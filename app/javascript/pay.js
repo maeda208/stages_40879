@@ -1,5 +1,7 @@
 window.addEventListener('turbo:load', function(){
+  console.log('ありがとう'); 
   const form = document.getElementById('pay-form');
+  console.log(form); 
   const button = document.getElementById('pay-button');
   const payMessage = document.querySelector('.pay-message');
 
@@ -11,6 +13,7 @@ window.addEventListener('turbo:load', function(){
       payMessage.style.display = 'block';
     } else {
       form.addEventListener('submit', (e) => {
+        console.log('さよなら'); 
         e.preventDefault();
         button.style.display = 'none';
         payMessage.style.display = 'block';

@@ -1,4 +1,4 @@
-<%= form_with model: [@stage, @apply], local: true do |f| %>
+<%= form_with model: [@stage, @apply], local: true,html: { id: 'pay-form' }  do |f| %>
   <div class="pay">
     <div class='pay_money'>
       <%= current_user.nickname %>さん</br>
