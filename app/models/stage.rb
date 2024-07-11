@@ -13,14 +13,11 @@ class Stage < ApplicationRecord
   has_many :comments
   validates :reward, presence: true
   validates :title, presence: true
-  validates :month_id, presence: true
-  validates :day_id, presence: true
-  validates :show_hour_id, presence: true
-  validates :end_hour_id, presence: true
+  validates :month_id, numericality: { other_than: 0 }
+  validates :day_id, numericality: { other_than: 0 }
+  validates :show_hour_id, numericality: { other_than: 0 }
+  validates :end_hour_id, numericality: { other_than: 0 }
   validates :theater, presence: true
   validates :address, presence: true
   validates :conditions, presence: true
-  def start_time
-      created_at
-    end
 end
