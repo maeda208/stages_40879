@@ -8,6 +8,7 @@ class Stage < ApplicationRecord
   belongs_to :month
   belongs_to :day
   has_many :applies
+  has_many :applies, dependent: :destroy
   has_many :applicants, through: :applies, source: :user
   has_many :comments
   validates :reward, presence: true
