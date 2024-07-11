@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :owned_stages, class_name: 'Stage' 
   has_many :applied_stages, through: :applies, source: :stage 
   has_many :comments
+  has_many :contacts
   attr_accessor :token
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
