@@ -17,6 +17,10 @@
          </li>
           <% end %>  
          </ul>
+         <%= month_calendar do |date| %>
+  <%= date.day %>
+<% end %>
+
          <%= link_to "お問い合わせ・振込申請 " ,new_contact_path, class: :inquiry %>
         
          </div>
