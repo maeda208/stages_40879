@@ -1,7 +1,7 @@
 class StagesController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:edit,:destroy,:participate, :pay,:completion]
-  before_action :set_stage, only: [:edit, :show,:destroy, :pay]
-  before_action :user_signed, only: [:edit, :destroy, :pay, :comletion]
+  before_action :authenticate_user!, only: [:new,:edit,:destroy,:participate,:pay_form, :pay,:completion]
+  before_action :set_stage, only: [:edit, :show,:destroy,:pay_form ,:pay]
+  before_action :user_signed, only: [:edit, :destroy,:pay_form, :pay, :comletion]
   def index
     @stages = Stage.includes(:user).order("created_at DESC")
   end
@@ -46,9 +46,30 @@ class StagesController < ApplicationController
     @comments = Comment.where(stage_id: @stage.id, apply_id: @apply.id)
   end
 
+  def pay_form
+    @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
+    if @apply.nil?
+      redirect_to root_path, alert: '申し込みが見つかりません。'
+      return
+    end
+  end
+  
   def pay
     @apply = Apply.find_by(stage_id: @stage.id, user_id: params[:user_id])
-      redirect_to root_path, alert: '申し込みが見つかりません。'if @apply.nil?
+    if current_user.money < @stage.reward
+      redirect_to root_path, alert: '残高が不足しています。'
+      return
+    end
+  
+    begin
+      ActiveRecord::Base.transaction do
+        current_user.update!(money: current_user.money - @stage.reward)
+        @apply.user.update!(money: @apply.user.money + @stage.reward)
+        redirect_to completion_stage_path(@stage)
+      end
+  
+    
+    end
    end
 
    def completion

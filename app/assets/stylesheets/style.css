@@ -165,3 +165,8 @@ a {
   color: white;
   background-color: darkcyan;
 }
+
+.form-reward{
+  width: 150px;
+  height: 40px;
+}

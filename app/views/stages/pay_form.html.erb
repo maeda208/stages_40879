@@ -1,16 +1,18 @@
-<%= form_with model: [@stage, @apply], local: true,html: { id: 'pay-form' }  do |f| %>
+<%= form_with url: pay_stage_path, method: :post, local: true, html: { id: 'pay-form' }  do |f| %>
   <div class="pay">
     <div class='pay_money'>
       <%= current_user.nickname %>さん</br>
       残高 ¥.<%= current_user.money %></br>
       <div class="field">
-        <%= f.label :money, "謝礼金" %><br />
-        ¥.<%= f.text_field :money, id:"user_money" %>
+        <%= f.label :reward, "謝礼金" %><br />
+        <div style="display: flex;">
+        ¥<%= f.text_field :reward, value: @stage.reward, id: 'transfer_commission', readonly: true, class:'form-reward' %>
       </div>
       <div class="arrow">⬇️</div>
       <%= @apply.user.nickname %>さん</br>
     </div>
     <%= f.hidden_field :action_type, value: 'pay' %>
+    <%= f.hidden_field :user_id, value:@apply.user.id %>
      <%= f.submit "支払う", class: 'pay__btn', id: 'pay-button', data: { apply_id: @apply.id } %>
     <span class='pay-message' style='display:none;'>支払い済み</span>
   </div>
