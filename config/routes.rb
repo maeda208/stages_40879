@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :stages do
     member do
       get 'participate'
-      get 'pay'
+      get 'pay_form'
+      post 'pay'
       get 'completion'
     end
     resources :applies do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_07_204623) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_19_143457) do
   create_table "applies", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stage_id", null: false
@@ -46,23 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_07_204623) do
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table "room_users", charset: "utf8mb4", force: :cascade do |t|
-    t.bigint "room_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_users_on_room_id"
-    t.index ["user_id"], name: "index_room_users_on_user_id"
-  end
-
-  create_table "rooms", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stages", charset: "utf8mb4", force: :cascade do |t|
-    t.string "reward", null: false
+    t.integer "reward", null: false
     t.string "title", null: false
     t.integer "month_id", null: false
     t.integer "day_id", null: false
@@ -103,7 +88,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_07_204623) do
   add_foreign_key "applies", "stages"
   add_foreign_key "applies", "users"
   add_foreign_key "contacts", "users"
-  add_foreign_key "room_users", "rooms"
-  add_foreign_key "room_users", "users"
   add_foreign_key "stages", "users"
 end
