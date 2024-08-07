@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_19_143457) do
+ActiveRecord::Schema[7.0].define(version: 2024_08_07_084217) do
   create_table "applies", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "stage_id", null: false
@@ -47,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_19_143457) do
   end
 
   create_table "stages", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "reward", null: false
     t.string "title", null: false
     t.integer "month_id", null: false
     t.integer "day_id", null: false
@@ -62,6 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_19_143457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "start_time"
+    t.integer "reward"
     t.index ["user_id"], name: "index_stages_on_user_id"
   end
 
